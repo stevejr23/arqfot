@@ -19,3 +19,6 @@ db.car_collection.createIndex({model:"text"})
 
 comando node
 npm init -y 
+
+docker build -t stevej23/mapa:0.0.1.RELEASE .
+docker container run -d -p 3000:3000 stevej23/mapa:0.0.1.RELEASE
