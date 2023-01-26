@@ -1,0 +1,16 @@
+{
+  "name": "paradas",
+  "version": "1.0.0",
+  "description": "Microservicio de un mapa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "leaflet": "1.7.1"
+  }
+}

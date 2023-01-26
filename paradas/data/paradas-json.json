@@ -1,5 +1,0 @@
-{
-    "type":"ParadasCollection",
-    "name":"Paradas_Situ",
-    "crs": {"type":"name","properties":{"name": "urn:ogc:def:crs:OGC:1.3:CR84"}}
-}

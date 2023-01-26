@@ -16,3 +16,6 @@ mongo -u admin -p admin
 use admin
 
 db.car_collection.createIndex({model:"text"})
+
+comando node
+npm init -y 

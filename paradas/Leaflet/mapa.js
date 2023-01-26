@@ -13,7 +13,7 @@ document.getElementById('select-location').addEventListener('change', function (
 })
 
 // Agregar mapa base para el Mini Mapa
-var carto_light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '©OpenStreetMap, ©CartoDB', subdomains: 'abcd', maxZoom: 24 });
+var carto_light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '©OpenStreetMap, ©CartoDB', subdomains: 'abcd', maxZoom: 26 });
 
 // Agregar plugin MiniMap
 var minimap = new L.Control.MiniMap(carto_light,
@@ -28,31 +28,43 @@ new L.control.scale({ imperial: false }).addTo(map);
 
 
 // Agregar coordenadas para dibujar una polilinea
-var coord_camino = [
-    [4.798039528031478, -74.03124090388363],
-    [4.79059838513191, -74.02832266048456],
-    [4.786663954996014, -74.02806516841994],
-    [4.784183541760121, -74.02832266048456],
-    [4.781275459625073, -74.02703520016145],
-    [4.777683105825763, -74.02617689327938],
-    [4.7735878498196636, -74.02655897938767],
-    [4.771834421730695, -74.02735291325358],
-    [4.770316205986422, -74.02692375981255]
+var BusA = [
+    [-3.994550, -79.205290],
+    [-3.994803, -79.205256],
+    [-3.995383, -79.205172],
+    [-3.995696, -79.205137],
+    [-3.996140, -79.205093],
+    [-3.996502, -79.205049],
+    [-3.996707, -79.205022],
+    [-3.997152, -79.204951],
+    [-3.997379, -79.204920],
+    [-4.001298, -79.204501]
+
 ];
 
-var camino = L.polyline(coord_camino, {
-    color: 'red'
+// Ruta Bus
+var BusA = L.polyline(BusA, {
+    color: 'green'
 }).addTo(map);
 
 // Agregar un marcador
-var marker_hospitalUTPL = L.circleMarker(L.latLng(-4.0029292, -79.1985087), {
+var marker_hospitalUTPL = L.circleMarker(L.latLng(-3.985775, -79.199130), {
     radius: 6,
     fillColor: "#ff0000",
     color: "blue",
     weight: 2,
-    opacity: 1,
-    fillOpacity: 0.6,
+    opacity: 3,
+    fillOpacity: 1,
 }).addTo(map);
+
+// Agregar un marcador
+var marker_taxi = L.icon({
+    iconUrl: 'Leaflet.Legend-master/examples/marker/taxi.png',
+    iconSize: [15, 15],
+    iconAnchor: [15, 15],
+    //popupAnchor: [-3, -76]
+});
+L.marker(L.latLng(-3.9950942,-79.2047547), {icon: marker_taxi}).addTo(map);
 
 // Agregar la leyenda
 const legend = L.control.Legend({
@@ -63,39 +75,27 @@ const legend = L.control.Legend({
     column: 1,
     legends: [
         {
-            label: "Hospital UTPL",
+            label: "Ubicacion Usuario",
             type: "circle",
             radius: 5,
             color: "blue",
             fillColor: "#FF0000",
-            fillOpacity: 0.6,
+            fillOpacity: 1,
             weight: 2,
-            layers: [marker_cerro],
+            layers: [marker_hospitalUTPL],
             inactive: false,
         }, {
-            label: "Carrera Septima",
+            label: "Ruta Bus A",
             type: "polyline",
             color: "#FF0000",
             fillColor: "#FF0000",
             weight: 2,
-            layers: camino
+            layers: BusA
         }, {
-            label: "Marcador",
+            label: "Taxi 1",
             type: "image",
-            url: "Leaflet.Legend-master/examples/marker/purple.png"
-        }, {
-            label: "Linea Punteada",
-            type: "polyline",
-            color: "#0000FF",
-            fillColor: "#0000FF",
-            dashArray: [5, 5],
-            weight: 2
-        }, {
-            label: "Poligono",
-            type: "polygon",
-            sides: 5,
-            color: "#FF0000",
-            fillColor: "#FF0000",
-            weight: 2
+            url: "Leaflet.Legend-master/examples/marker/taxi.png",
+            layers: [marker_taxi],
+            
         }]
 }).addTo(map);
