@@ -1,0 +1,47 @@
+[
+  {
+    "propietario": [
+      "Luis Daniel"
+    ],
+    "placa": [
+      "LBA-2856"
+    ],
+    "compania": [
+      "24 de mayo"
+    ],
+    "caja": [
+      "Automatica"
+    ],
+    "year": "2020"
+  },
+  {
+    "propietario": [
+      "Daniel Guzman"
+    ],
+    "placa": [
+      "LBA-5962"
+    ],
+    "compania": [
+      "24 de mayo"
+    ],
+    "caja": [
+      "Manual"
+    ],
+    "year": "2021"
+  },
+  {
+    "propietario": [
+      "Luis Lopez"
+    ],
+    "placa": [
+      "LBA-9875"
+    ],
+    "compania": [
+      "24 de mayo"
+    ],
+    "caja": [
+      "Automatica"
+    ],
+    "year": "2022"
+  }
+]

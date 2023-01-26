@@ -1,0 +1,18 @@
+pip install -r .\requirements.txt
+pip freeze > requeriments
+docker-compose build
+docker-compose up -d
+docker-compose up --build
+docker-compose down
+uvicorn app:app --reload
+
+docker-compose up --build
+docker exec -it mongodb /bin/bash
+
+mongoimport --jsonArray --db admin -u admin -p admin 
+--collection car_collection all_cars.json
+
+mongo -u admin -p admin
+use admin
+
+db.car_collection.createIndex({model:"text"})
